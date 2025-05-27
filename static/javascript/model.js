@@ -1,3 +1,7 @@
+import * as THREE from 'three';
+
 export function houseModel(){
-    console.log("House model");
+
+
+    const scene = new THREE.Scene();
 }

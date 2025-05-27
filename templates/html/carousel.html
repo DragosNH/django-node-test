@@ -1,6 +1,37 @@
-<div class="imgContainer">
-    <img src="https://picsum.photos/200/300?random=1" class="img">
-    <img src="https://picsum.photos/200/300?random=2" class="img hidden">
-    <img src="https://picsum.photos/200/300?random=3" class="img hidden">
-    <img src="https://picsum.photos/200/300?random=4" class="img hidden">
+{% load static %}
+<div class="images">
+    <div class="imgContainer">
+        <div class="miniContainer">
+            <img src="{% static 'images/img1.jpg' %}" class="img">
+            <p class="containerTxt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque nihil debitis vero
+                dolorem asperiores, nulla dolore praesentium aliquam ipsam maxime consectetur animi autem obcaecati
+                nesciunt! Veniam eos tempora magni quod.</p>
+        </div>
+        <div class="miniContainer hidden">
+            <img src="{% static 'images/img2.jpg' %}" class="img">
+            <p class="containerTxt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nostrum porro
+                rerum dicta laboriosam vitae suscipit quos dolores in eius obcaecati, nesciunt optio placeat saepe
+                alias, odio autem molestias accusamus?</p>
+        </div>
+        <div class="miniContainer hidden">
+            <img src="{% static 'images/img3.jpg' %}" class="img">
+            <p class="containerTxt">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod nemo amet labore at
+                eaque. Maxime exercitationem et blanditiis laborum ipsum eius deleniti. Soluta magnam totam fuga fugit
+                quod nihil quae?</p>
+        </div>
+        <div class="miniContainer hidden">
+            <img src="{% static 'images/img4.jpg' %}" class="img">
+            <p class="containerTxt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit non
+                repellendus accusantium quisquam ducimus debitis, voluptatum error quos, nulla esse veniam qui
+                voluptatibus illo ullam assumenda nesciunt amet vel quas?</p>
+        </div>
+        <div class="miniContainer hidden">
+            <img src="{% static 'images/img5.jpg' %}" class="img">
+            <p class="containerTxt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, quasi. Ad nam odio placeat quia fugit. Id exercitationem soluta asperiores quam vel, corrupti labore, unde recusandae architecto provident optio veritatis.</p>
+        </div>
+    </div>
+    <div class="controlBtns">
+        <button class="controlBtn leftArrow">←</button>
+        <button class="controlBtn rightArrow">→</button>
+    </div>
 </div>

@@ -15,7 +15,9 @@ class PageLoader {
             const html = await response.text();
             this.container.innerHTML = html;
 
-            if (callback) callback();
+            if (callback) {
+                setTimeout(callback, 0);
+            }
         } catch (error) {
             this.container.innerHTML = `<p style="color:red;">${error.message}</p>`;
         }
@@ -25,8 +27,8 @@ class PageLoader {
 const pageLoader = new PageLoader('container');
 
 carouselBtn.addEventListener("click", () => {
-    pageLoader.load("/partials/carousel/", carouselDiaporama); 
+    pageLoader.load("/partials/carousel/", carouselDiaporama);
 });
 
-pageLoader.load("/partials/carousel/", carouselDiaporama); 
+pageLoader.load("/partials/carousel/", carouselDiaporama);
 
