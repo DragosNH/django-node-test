@@ -25,4 +25,5 @@ urlpatterns = [
     path('', RedirectView.as_view(url='home/', permanent=True)),
     path('home/', home, name='home'),
     path('partials/carousel/', views.carousel_partial, name='carousel-partial'),
+    path('partials/model/', views.model_partial, name='model-partial'),
 ]

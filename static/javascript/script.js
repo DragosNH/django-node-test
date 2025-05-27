@@ -2,6 +2,7 @@ import { carouselDiaporama } from "./caroussel.js";
 import { houseModel } from "./model.js";
 
 const carouselBtn = document.querySelector(".carouselBtn");
+const modelBtn = document.querySelector(".objectBtn");
 
 class PageLoader {
     constructor(classItem) {
@@ -30,5 +31,10 @@ carouselBtn.addEventListener("click", () => {
     pageLoader.load("/partials/carousel/", carouselDiaporama);
 });
 
+modelBtn.addEventListener("click", () => {
+    pageLoader.load("/partials/model/", houseModel);
+});
+
 pageLoader.load("/partials/carousel/", carouselDiaporama);
+
 

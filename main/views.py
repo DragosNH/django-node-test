@@ -7,3 +7,6 @@ def home(request):
     
 def carousel_partial(request):
     return render(request, 'html/carousel.html')
+
+def model_partial(request):
+    return(render(request, 'html/model.html'))
