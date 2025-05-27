@@ -1,1 +1,1 @@
-console.log("test from script.js");
+const container = document.querySelector(".container");
