@@ -1,0 +1,36 @@
+body{
+    background-color: #fafafa;
+    margin: 0;
+    height: 100vh;
+}
+
+.header{
+    background-color: brown;
+    display: flex;
+}
+
+.square{
+    width: 50px;
+    height: 50px;
+    background-color: #fafafa;
+    margin: 20px;
+}
+
+.header-txt {
+    margin: 20px 0;
+    & .txt1{
+        margin: 0;
+        font-size: 25px;
+    }
+    & .txt2{
+        margin: 0;
+    }
+}
+
+.footer{
+    background-color: brown;
+    display: flex;
+    position:fixed;
+    bottom: 0;
+    width: 100vw;
+}
