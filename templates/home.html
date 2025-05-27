@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v={{ now|date:'U' }}">
 </head>
 
 <body>
@@ -19,12 +19,12 @@
     </header>
 
     <nav>
-        <button class="carousselBtn btn">Déscription</button>
+        <button class="carouselBtn btn">Déscription</button>
         <button class="objectBtn btn">Modele 3D</button>
         <button class="cameraBtn btn">Camera</button>
     </nav>
 
-    <main class="conatiner">
+    <main class="container">
 
     </main>
 
@@ -36,8 +36,7 @@
         </div>
     </footer>
 
-    <script src="{% static 'javascript/main.js' %}"></script>
-    <script type="module" src="http://localhost:3000/script.js"></script>
+  <script type="module" src="{% static 'javascript/script.js' %}"></script></body>
 </body>
 
 </html>

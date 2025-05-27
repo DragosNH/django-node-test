@@ -18,9 +18,11 @@ from django.contrib import admin
 from django.urls import path
 from django.views.generic import RedirectView
 from main.views import home
+from main import views 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', RedirectView.as_view(url='home/', permanent=True)),
     path('home/', home, name='home'),
+    path('partials/carousel/', views.carousel_partial, name='carousel-partial'),
 ]
