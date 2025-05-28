@@ -10,11 +10,13 @@ export function houseModel() {
     const width = houseModel.clientWidth;
     const height = houseModel.clientHeight;
     const camera = new THREE.PerspectiveCamera(70, width / height, 0.1, 1000);
+    scene.background = null;
+
 
     camera.position.set(15, 0, 15);
 
     // Renderer
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(houseModel.clientWidth, houseModel.clientHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
     houseModel.appendChild(renderer.domElement);
@@ -43,12 +45,13 @@ export function houseModel() {
 
     // Objects
     const loader = new GLTFLoader();
-    const house = loader.load('/static/images/House.glb', function (gltf) {
-        scene.add(gltf.scene);
+    loader.load('/static/images/House.glb', function (gltf) {
+        const house = gltf.scene;
+        house.position.y = -3;
+        scene.add(house);
     }, undefined, function (e) {
         console.error(e);
     });
-    scene.add(house);
 
     window.addEventListener('resize', () => {
         const width = houseModel.clientWidth;
