@@ -19,6 +19,8 @@ from django.urls import path
 from django.views.generic import RedirectView
 from main.views import home
 from main import views 
+from main.views import ar_view
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +28,5 @@ urlpatterns = [
     path('home/', home, name='home'),
     path('partials/carousel/', views.carousel_partial, name='carousel-partial'),
     path('partials/model/', views.model_partial, name='model-partial'),
+    path('camera/', ar_view, name='camera'),
 ]

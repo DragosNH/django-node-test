@@ -10,3 +10,6 @@ def carousel_partial(request):
 
 def model_partial(request):
     return(render(request, 'html/model.html'))
+
+def ar_view(request):
+    return render(request, 'partials/arpage.html')

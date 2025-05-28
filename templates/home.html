@@ -5,8 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Patrimoine en jeu</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}?v={{ now|date:'U' }}">
+    <link rel="logo" type="image/png" href="{% static 'images/logo.png' %}" >
 </head>
 
 <body>
@@ -21,7 +22,7 @@
     <nav>
         <button class="carouselBtn btn">Déscription</button>
         <button class="objectBtn btn">Modele 3D</button>
-        <button class="cameraBtn btn">Camera</button>
+        <a href="{% url 'camera' %}"><button class="cameraBtn btn">Camera</button></a>
     </nav>
 
     <main class="container">

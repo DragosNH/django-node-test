@@ -36,7 +36,7 @@ export function houseModel() {
     controls.addEventListener('end', () => {
         resumeTimeout = setTimeout(() => {
             isUserInteracting = false;
-        }, 2000);
+        }, 1000);
     });
 
 
@@ -84,7 +84,7 @@ export function houseModel() {
         controls.update();
 
         if (house && !isUserInteracting) {
-            house.rotation.y += 0.009;
+            house.rotation.y += 0.007;
         }
 
         renderer.render(scene, camera);
