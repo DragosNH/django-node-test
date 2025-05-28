@@ -25,6 +25,21 @@ export function houseModel() {
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = false;
 
+    let isUserInteracting = false;
+    let resumeTimeout = null;
+
+    controls.addEventListener('start', () => {
+        isUserInteracting = true;
+        clearTimeout(resumeTimeout); 
+    });
+
+    controls.addEventListener('end', () => {
+        resumeTimeout = setTimeout(() => {
+            isUserInteracting = false;
+        }, 2000);
+    });
+
+
     // Light 
     const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1.2);
     hemiLight.position.set(0, 20, 0);
@@ -44,9 +59,11 @@ export function houseModel() {
     scene.add(light3);
 
     // Objects
+    let house = null;
+
     const loader = new GLTFLoader();
     loader.load('/static/images/House.glb', function (gltf) {
-        const house = gltf.scene;
+        house = gltf.scene;
         house.position.y = -3;
         scene.add(house);
     }, undefined, function (e) {
@@ -65,6 +82,11 @@ export function houseModel() {
     function animate() {
         requestAnimationFrame(animate);
         controls.update();
+
+        if (house && !isUserInteracting) {
+            house.rotation.y += 0.009;
+        }
+
         renderer.render(scene, camera);
     }
     animate();
