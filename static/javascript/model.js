@@ -1,5 +1,6 @@
 import * as THREE from 'https://esm.sh/three@0.158.0';
 import { OrbitControls } from 'https://esm.sh/three@0.158.0/examples/jsm/controls/OrbitControls.js';
+import { GLTFLoader } from 'https://esm.sh/three@0.158.0/examples/jsm/loaders/GLTFLoader.js';
 
 export function houseModel() {
     const houseModel = document.querySelector(".houseModel");
@@ -10,7 +11,7 @@ export function houseModel() {
     const height = houseModel.clientHeight;
     const camera = new THREE.PerspectiveCamera(70, width / height, 0.1, 1000);
 
-    camera.position.set(0, 0, 10);
+    camera.position.set(15, 0, 15);
 
     // Renderer
     const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -20,13 +21,34 @@ export function houseModel() {
 
     // Orbit control
     const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
+    controls.enableDamping = false;
+
+    // Light 
+    const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1.2);
+    hemiLight.position.set(0, 20, 0);
+    scene.add(hemiLight);
+
+    // Directional light (like the sun)
+    const light1 = new THREE.DirectionalLight(0xffffff, 0.5);
+    light1.position.set(10, 10, 10);
+    scene.add(light1);
+
+    const light2 = new THREE.DirectionalLight(0xffffff, 0.5);
+    light2.position.set(-10, -10, -10);
+    scene.add(light2);
+
+    const light3 = new THREE.DirectionalLight(0xffffff, 0.5);
+    light3.position.set(0, 10, -10);
+    scene.add(light3);
 
     // Objects
-    const geometry = new THREE.BoxGeometry(3, 3, 3);
-    const material = new THREE.MeshBasicMaterial({ color: 0x0ff0f0 });
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
+    const loader = new GLTFLoader();
+    const house = loader.load('/static/images/House.glb', function (gltf) {
+        scene.add(gltf.scene);
+    }, undefined, function (e) {
+        console.error(e);
+    });
+    scene.add(house);
 
     window.addEventListener('resize', () => {
         const width = houseModel.clientWidth;
@@ -39,9 +61,8 @@ export function houseModel() {
 
     function animate() {
         requestAnimationFrame(animate);
-        controls.update(); 
-        renderer.render(scene, camera); 
+        controls.update();
+        renderer.render(scene, camera);
     }
     animate();
-    console.log("test");
 }
